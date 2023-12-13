@@ -1,12 +1,14 @@
 package chess;
 
+import boardgame.BoardException;
+
 import java.io.Serial;
 
-public class chessExeption extends RuntimeException{
+public class ChessExeption extends BoardException {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public chessExeption(String msg) {
+    public ChessExeption(String msg) {
         super(msg);
     }
 }
