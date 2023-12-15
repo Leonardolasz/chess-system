@@ -52,17 +52,17 @@ public class UI {
     public static void printMatch(ChessMatch chessMatch, List<ChessPiece> captured) {
         printBoard(chessMatch.getPieces());
         System.out.println();
-        printCapuredPieces(captured);
+        printCapturedPieces(captured);
         System.out.println();
-        System.out.println("Turn: " + chessMatch.getTurn());
-        if(!chessMatch.getCheck()){
+        System.out.println("Turn : " + chessMatch.getTurn());
+        if (!chessMatch.getCheckMate()) {
             System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
-            if(chessMatch.getCheck()) {
+            if (chessMatch.getCheck()) {
                 System.out.println("CHECK!");
             }
         }
         else {
-            System.out.println("CHECKMATE!!!");
+            System.out.println("CHECKMATE!");
             System.out.println("Winner: " + chessMatch.getCurrentPlayer());
         }
     }
@@ -108,7 +108,7 @@ public class UI {
         System.out.print(" ");
     }
 
-    private static void printCapuredPieces(List<ChessPiece> captured) {
+    private static void printCapturedPieces(List<ChessPiece> captured) {
         List<ChessPiece> white = captured.stream().filter(x -> x.getColor() == Color.WHITE).toList();
         List<ChessPiece> black = captured.stream().filter(x -> x.getColor() == Color.BLACK).toList();
         System.out.println("Captured pieces: ");
